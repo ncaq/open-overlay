@@ -36,14 +36,13 @@ src_install() {
 
 	dohtml -r about.html about_files epl-v10.html notice.html readme/*
 
-	cp "${FILESDIR}"/eclipserc-bin-${SLOT} "${T}" || die
-	cp "${FILESDIR}"/eclipse-bin-${SLOT} "${T}" || die
-	sed "s@%SLOT%@${SLOT}@" -i "${T}"/eclipse{,rc}-bin-${SLOT} || die
+	cp "${FILESDIR}"/eclipserc-bin "${T}" || die
+	cp "${FILESDIR}"/eclipse-bin "${T}" || die
+	sed "s@%SLOT%@${SLOT}@" -i "${T}"/eclipse{,rc}-bin || die
 
 	insinto /etc
-	newins "${T}"/eclipserc-bin-${SLOT} eclipserc-bin-${SLOT}
+	newins "${T}"/eclipserc-bin eclipserc-bin
 
-	newbin "${T}"/eclipse-bin-${SLOT} eclipse-bin-${SLOT}
-	make_desktop_entry "eclipse-bin-${SLOT}" "Eclipse ${PV} (bin)" "${dest}/icon.xpm"
+	newbin "${T}"/eclipse-bin eclipse-bin
+	make_desktop_entry "eclipse-bin" "Eclipse ${PV} (bin)" "${dest}/icon.xpm"
 }
-

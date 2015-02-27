@@ -11,7 +11,7 @@
 
 SLOT="%SLOT%"
 
-[ -f "/etc/eclipserc-bin-${SLOT}" ] && . "/etc/eclipserc-bin-${SLOT}"
+[ -f "/etc/eclipserc-bin" ] && . "/etc/eclipserc-bin"
 [ -f "$HOME/gentoo/.eclipserc" ] && . "$HOME/gentoo/.eclipserc"
 
 ECLIPSE_HOME=${ECLIPSE_HOME:="/opt/eclipse-sdk-bin-%SLOT%"}
